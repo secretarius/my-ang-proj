@@ -10,6 +10,8 @@ export class CarsComponent {
   // addCarStatus = ' ';
   carName = ' ';
   addCarStatus = false;
+  cars = ['Ford', 'Audi', 'BMW', 'Mazda', 'Lada', 'Bently'];
+  // items = [{id: 3, name: 'item 1'}, {id: 6, name: 'item 2'}, {id: 9  , name: 'item 3'}];
   // inputText =  ' ';
   // inputText =  'Default text';
 
@@ -23,9 +25,16 @@ export class CarsComponent {
 
   addCar() {
     this.addCarStatus = true;
+    this.cars.push(this.carName);
+    this.carName = ' ';
+    
     // this.addCarStatus = 'Машина добавлена!'
   }
 
+  setBigCarText(car: string) {
+
+  return car.length > 4 ? true : false;
+  }
   // onKeyUp(event: Event) {
   //   this.inputText = (<HTMLInputElement>event.target).value;
   // }
@@ -38,4 +47,4 @@ export class CarsComponent {
   //   this.inputText = event.target.value;
   // }
 
-}
+} 

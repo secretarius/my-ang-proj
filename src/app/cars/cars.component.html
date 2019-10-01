@@ -1,23 +1,36 @@
 <input type="text" class="form-control" [(ngModel)]="carName">
-<p *ngIf="!addCarStatus; else successStatus">Машина не добавлена!</p>
+<button class="btn btn-primary" (click) = "addCar()">Добавить машину</button>
+<!-- <p>{{ addCarStatus }}</p> -->
+<p *ngIf="!addCarStatus; else successStatus">Машина не добавлена</p>
 <ng-template #successStatus>
     <p>Машина добавлена!</p>
 </ng-template>
+<hr> 
+<!-- 
+<app-car *ngFor="let car of cars"></app-car> -->
+<!-- 
+<ul>
+    <li *ngFor="let item of items; let idx = index">
+        <b>{{ idx + 1 }}</b> - <i>{{ item.name }}</i>
+    </li>
+</ul> -->
 
-<button class="btn btn-primary" (click) = "addCar()">Добавить машину</button>
-<!-- <p>{{ addCarStatus }}</p> -->
-<hr>
-<app-car></app-car>
-<app-car></app-car>
 
-<hr>
-
-
+<ul>
+    <li *ngFor="let car  of cars; let idx = index">
+        <div 
+            [ngStyle] = "{'background-color': (idx + 1) % 2 === 0 ? 'red': 'green', 'color': 'white'}"
+            [ngClass] = "{'big-text': setBigCarText(car)}" 
+        >
+            <b>{{ idx + 1 }}</b> - {{ car }}
+        </div>
+    </li>
+</ul>
 
 <!-- <input type="text" class="form-control" (input)="onKeyUp($event)"> --> 
 <!-- <input type="text" class="form-control" #myInp (input)="onKeyUp(myInp.value)"> -->
 <!-- <input type="text" class="form-control" (keyup.enter)="onKeyUp($event)"> -->
 
 
-<!-- <input type="text" class="form-control" [(ngModel)]="inputText"> 
-<p>{{ inputText }}</p> -->
+<!-- <input type="text" class="form-control" [(ngModel)]="inputText"> -->
+<!-- <p>{{ inputText }}</p> -->
